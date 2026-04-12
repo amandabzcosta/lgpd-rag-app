@@ -55,7 +55,7 @@ def load_rag_pipeline():
     )
     
     model = ChatGoogleGenerativeAI(
-        model="gemini-flash-lite-latest",
+        model="gemini-2.0-flash",
         temperature=0,  
         max_tokens=None,
         timeout=None,
