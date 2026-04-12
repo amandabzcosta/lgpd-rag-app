@@ -10,6 +10,11 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_classic.chains import create_retrieval_chain
 
 st.set_page_config(page_title="Assistente LGPD", page_icon="⚖️", layout="centered")
+user_password = st.text_input("Digite a senha de acesso:", type="password")
+
+if user_password != "project-rag-amanda-00":
+    st.warning("Acesso restrito.")
+    st.stop() 
 
 st.title("⚖️ Assistente LGPD")
 st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
@@ -17,7 +22,7 @@ st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
 try:
     os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 except KeyError:
-    st.error("Chave de API não encontrada. Configure o st.secrets no Streamlit.")
+    st.error("Chave de API não encontrada.")
     st.stop()
 
 @st.cache_resource(show_spinner="Processando o documento LGPD...")
@@ -25,7 +30,7 @@ def load_rag_pipeline():
     file = "Lei_geral_protecao_dados_pessoais_1ed.pdf"
     
     if not os.path.exists(file):
-        st.error(f"Arquivo {file} não encontrado na pasta do projeto!")
+        st.error(f"Arquivo {file} não encontrado.")
         st.stop()
 
     loader = PyMuPDFLoader(file)
