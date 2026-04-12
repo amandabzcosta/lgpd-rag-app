@@ -11,7 +11,7 @@ from langchain_classic.chains import create_retrieval_chain
 
 st.set_page_config(page_title="Assistente LGPD", page_icon="⚖️", layout="centered")
 
-st.title("⚖️ Assistente LGPD - RAG")
+st.title("⚖️ Assistente LGPD")
 st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
 
 try:
