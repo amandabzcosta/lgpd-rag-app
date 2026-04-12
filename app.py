@@ -10,11 +10,20 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_classic.chains import create_retrieval_chain
 
 st.set_page_config(page_title="Assistente LGPD", page_icon="⚖️", layout="centered")
-user_password = st.text_input("Digite a senha de acesso:", type="password")
+if "autenticado" not in st.session_state:
+    st.session_state.autenticado = False
 
-if user_password != st.secrets["ACCESS_PASSWORD"]:
-    st.warning("Acesso restrito.")
-    st.stop() 
+if not st.session_state.autenticado:
+    user_password = st.text_input("Digite a senha de acesso:", type="password")
+    
+    if user_password: 
+        if user_password == st.secrets["ACCESS_PASSWORD"]:
+            st.session_state.autenticado = True
+            st.rerun() 
+        else:
+            st.error("Senha incorreta. Tente novamente.")
+    st.stop()
+user_password = st.text_input("Digite a senha de acesso:", type="password")
 
 st.title("⚖️ Assistente LGPD")
 st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
