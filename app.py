@@ -93,9 +93,18 @@ if question := st.chat_input("Digite sua dúvida sobre a LGPD..."):
             try:
                 response = rag_chain.invoke({"input": question})
                 answer = response["answer"]
-                st.markdown(answer)
+                docs_used = response["context"] 
                 
-                st.session_state.messages.append({"role": "assistant", "content": answer})
+                pages = set() 
+                for doc in docs_used:
+                    if "page" in doc.metadata:
+                        pages.add(doc.metadata["page"] + 1)
+                
+                text_pages = ", ".join(str(p) for p in sorted(pages))
+                final_answer = f"{answer}\n\n---\n***Fonte consultada:** Página(s) {text_pages} da LGPD.*"
+                
+                st.markdown(final_answer)
+                st.session_state.messages.append({"role": "assistant", "content": final_answer})
                 
             except Exception as e:
                 st.error(f"Ocorreu um erro ao processar sua pergunta: {e}")
