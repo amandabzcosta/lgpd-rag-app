@@ -12,7 +12,7 @@ from langchain_classic.chains import create_retrieval_chain
 st.set_page_config(page_title="Assistente LGPD", page_icon="⚖️", layout="centered")
 user_password = st.text_input("Digite a senha de acesso:", type="password")
 
-if user_password != "project-rag-amanda-00":
+if user_password != st.secrets["ACCESS_PASSWORD"]:
     st.warning("Acesso restrito.")
     st.stop() 
 
