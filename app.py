@@ -23,7 +23,6 @@ if not st.session_state.autenticado:
         else:
             st.error("Senha incorreta. Tente novamente.")
     st.stop()
-user_password = st.text_input("Digite a senha de acesso:", type="password")
 
 st.title("⚖️ Assistente LGPD")
 st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
