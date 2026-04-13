@@ -70,7 +70,7 @@ def load_rag_pipeline():
     )
     
     model = ChatGroq(
-        model_name="llama3-8b-8192",
+        model_name="llama-3.1-8b-instant",
         temperature=0,  
         max_retries=2,
     )
