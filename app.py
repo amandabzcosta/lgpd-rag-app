@@ -4,7 +4,7 @@ from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_classic.chains import create_retrieval_chain
@@ -43,7 +43,7 @@ st.title("⚖️ Assistente LGPD")
 st.write("Faça perguntas sobre a Lei Geral de Proteção de Dados.")
 
 try:
-    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 except KeyError:
     st.error("Chave de API não encontrada.")
     st.stop()
@@ -69,11 +69,9 @@ def load_rag_pipeline():
         embedding=embeddings,
     )
     
-    model = ChatGoogleGenerativeAI(
-        model="gemini-2.0-flash-lite",
+    model = ChatGroq(
+        model_name="llama3-8b-8192",
         temperature=0,  
-        max_tokens=None,
-        timeout=None,
         max_retries=2,
     )
 
