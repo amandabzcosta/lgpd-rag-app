@@ -1,6 +1,6 @@
 # Assistente LGPD - RAG
 
-O **Assistente LGPD** é um app de IA baseado na arquitetura **RAG** (Retrieval-Augmented Generation). O seguinte projeto foi desenvolvido para atuar como um assistente na Lei Geral de Proteção de Dados (LGPD) do Brasil, respondendo a dúvidas de interesse do mercado com alta precisão e baseando-se apenas no texto oficial da lei.
+O **Assistente LGPD** é um app de IA baseado na arquitetura **RAG** (Retrieval-Augmented Generation). O seguinte projeto foi desenvolvido para atuar como um assistente na Lei Geral de Proteção de Dados (LGPD) do Brasil, respondendo à dúvidas de interesse do mercado com precisão e usando como fonte apenas o texto oficial da lei. 
 
 **[Acesse o aplicativo por aqui!](<https://lgpd-rag-app.streamlit.app/>)**
 
@@ -8,10 +8,10 @@ O **Assistente LGPD** é um app de IA baseado na arquitetura **RAG** (Retrieval-
 
 ## Funcionalidades
 
-* Foi configurado com temperatura `0`, garantindo que a IA não invente informações, baseando-se 100% no contexto do documento fornecido.
+* Foi configurado com temperatura `0` para que o modelo não invente informações, baseando-se 100% no contexto do documento fornecido.
 * A cada resposta gerada, o assistente informa as páginas exatas do doc original que foram consultadas para estruturar o output.
 * Utiliza a LPU do Groq rodando o modelo Llama 3 da Meta, garantindo inferências em milissegundos.
-* Implementação de tela de login utilizando o cofre de secrets do Streamlit (st.secrets) para proteger o uso da solução.
+* Implementação de tela de login utilizando o cofre de secrets do Streamlit (`st.secrets`) para proteger o uso da solução.
 * Interface de chat interativa tem memória do histórico da conversa durante a sessão (via `st.session_state`).
 
 ---
