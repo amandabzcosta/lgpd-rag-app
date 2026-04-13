@@ -15,9 +15,9 @@ if not st.session_state["autenticado"]:
     
     with st.form("tela_de_login"):
         password_ = st.text_input("Digite a senha de acesso:", type="password", autocomplete="current-password")
-        enter_press = st.form_submit_button("Entrar")
+        enter_button = st.form_submit_button("Entrar")
     
-    if botao_entrar:
+    if enter_button:
         if password_ == st.secrets["ACCESS_PASSWORD"]:
             st.session_state["autenticado"] = True
             st.rerun() 
