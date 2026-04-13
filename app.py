@@ -10,6 +10,19 @@ from langchain_classic.chains.combine_documents import create_stuff_documents_ch
 from langchain_classic.chains import create_retrieval_chain
 
 st.set_page_config(page_title="Assistente LGPD", page_icon="⚖️", layout="centered")
+st.markdown(
+    """
+    <style>
+        div[data-testid="InputInstructions"] {
+            display: none !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+if "autenticado" not in st.session_state:
+    st.session_state["autenticado"] = False
+
 if not st.session_state["autenticado"]:
     st.info("Área Restrita. Insira a senha para continuar.")
     
