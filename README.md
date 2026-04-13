@@ -1,6 +1,6 @@
 # Assistente LGPD - RAG
 
-O **Assistente LGPD** é uma aplicação de IA baseada na arquitetura **RAG** (Retrieval-Augmented Generation). Este projeto foi desenvolvido para atuar como um assistente na Lei Geral de Proteção de Dados (LGPD) do Brasil, respondendo a dúvidas com alta precisão e baseando-se apenas no texto oficial da lei.
+O **Assistente LGPD** é um app de IA baseado na arquitetura **RAG** (Retrieval-Augmented Generation). O seguinte projeto foi desenvolvido para atuar como um assistente na Lei Geral de Proteção de Dados (LGPD) do Brasil, respondendo a dúvidas de interesse do mercado com alta precisão e baseando-se apenas no texto oficial da lei.
 
 **[Acesse o aplicativo por aqui!](<https://lgpd-rag-app.streamlit.app/>)**
 
@@ -8,10 +8,11 @@ O **Assistente LGPD** é uma aplicação de IA baseada na arquitetura **RAG** (R
 
 ## Funcionalidades
 
-* Utiliza banco de dados vetorial para encontrar os trechos exatos da lei que respondem à pergunta do usuário.
-* Configurado com temperatura `0`, garantindo que a IA não invente informações, baseando-se 100% no contexto do documento fornecido.
-* Interface de chat interativa que lembra o histórico da conversa durante a sessão (via `st.session_state`).
-* Leitura e vetorização do documento em cache para garantir respostas rápidas e baixo consumo de recursos na nuvem.
+* Foi configurado com temperatura `0`, garantindo que a IA não invente informações, baseando-se 100% no contexto do documento fornecido.
+* A cada resposta gerada, o assistente informa as páginas exatas do doc original que foram consultadas para estruturar o output.
+* Utiliza a LPU do Groq rodando o modelo Llama 3 da Meta, garantindo inferências em milissegundos.
+* Implementação de tela de login utilizando o cofre de secrets do Streamlit (st.secrets) para proteger o uso da solução.
+* Interface de chat interativa tem memória do histórico da conversa durante a sessão (via `st.session_state`).
 
 ---
 
@@ -19,10 +20,10 @@ O **Assistente LGPD** é uma aplicação de IA baseada na arquitetura **RAG** (R
 
 O projeto foi construído utilizando um ecossistema de IA em Python:
 
-* **[Streamlit](https://streamlit.io/):** Criação do Front-end interativo.
-* **[LangChain](https://www.langchain.com/):** Gestão do pipeline RAG, divisão de textos e cadeias de perguntas e respostas.
-* **[Google Gemini (2.0 Flash Lite)](https://aistudio.google.com/):** Modelo de Linguagem Grande (LLM) utilizado para estruturar as respostas.
-* **[HuggingFace Embeddings](https://huggingface.co/):** Modelo `all-MiniLM-L6-v2` para conversão de texto em vetores.
+* **[Streamlit](https://streamlit.io/):** Criação do Front-end.
+* **[LangChain](https://www.langchain.com/):** Gestão do pipeline RAG, divisão de textos e chain de perguntas e respostas.
+* **[Groq (Llama 3.3 70B))](https://aistudio.google.com/):** LLM open source focado em alta velocidade e raciocínio lógico para estruturar as respostas.
+* **[HuggingFace Embeddings](https://huggingface.co/):** Modelo transformer `all-MiniLM-L6-v2` para conversão de texto em vetores.
 * **[ChromaDB](https://www.trychroma.com/):** Banco de dados vetorial operando em memória para recuperação dos chunks da lei.
 * **[PyMuPDF](https://pymupdf.readthedocs.io/):** Extração dos textos do documento PDF oficial.
 
@@ -31,9 +32,9 @@ O projeto foi construído utilizando um ecossistema de IA em Python:
 ## Estrutura do Projeto
 
 ```text
-├── app.py                                    # Código principal da aplicação e interface
+├── app.py                                    # Código main do app e interface
 ├── requirements.txt                          # Lista de dependências e bibliotecas
 ├── Lei_geral_protecao_dados_pessoais_1ed.pdf # Knowledge Base
-└── README.md                                 # Documentação do projeto
+└── README.md                                 # Documentação
 
 
