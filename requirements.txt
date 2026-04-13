@@ -3,7 +3,7 @@ langchain-community
 langchain-text-splitters
 langchain-huggingface
 langchain-chroma
-langchain-google-genai
+langchain-groq
 pymupdf
 chromadb
 sentence-transformers
