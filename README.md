@@ -21,7 +21,7 @@ O projeto foi construído utilizando um ecossistema de IA em Python:
 
 * **[Streamlit](https://streamlit.io/):** Criação do Front-end interativo.
 * **[LangChain](https://www.langchain.com/):** Gestão do pipeline RAG, divisão de textos e cadeias de perguntas e respostas.
-* **[Google Gemini (2.0 Flash)](https://aistudio.google.com/):** Modelo de Linguagem Grande (LLM) utilizado para estruturar as respostas.
+* **[Google Gemini (2.0 Flash Lite)](https://aistudio.google.com/):** Modelo de Linguagem Grande (LLM) utilizado para estruturar as respostas.
 * **[HuggingFace Embeddings](https://huggingface.co/):** Modelo `all-MiniLM-L6-v2` para conversão de texto em vetores.
 * **[ChromaDB](https://www.trychroma.com/):** Banco de dados vetorial operando em memória para recuperação dos chunks da lei.
 * **[PyMuPDF](https://pymupdf.readthedocs.io/):** Extração dos textos do documento PDF oficial.
