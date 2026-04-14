@@ -4,6 +4,10 @@ O **Assistente LGPD** é um app de IA baseado na arquitetura **RAG** (Retrieval-
 
 **[Acesse o aplicativo por aqui!](<https://lgpd-rag-app.streamlit.app/>)**
 
+<p align="center">
+  <img src="img/fluxograma_rag_projeto.png" alt="Fluxograma da Arquitetura RAG" width="100%">
+</p>
+
 ---
 
 ## Funcionalidades
@@ -22,7 +26,7 @@ O projeto foi construído utilizando um ecossistema de IA em Python:
 
 * **[Streamlit](https://streamlit.io/):** Criação do Front-end.
 * **[LangChain](https://www.langchain.com/):** Gestão do pipeline RAG, divisão de textos e chain de perguntas e respostas.
-* **[Groq (Llama 3.3 70B))](https://aistudio.google.com/):** LLM open source focado em alta velocidade e raciocínio lógico para estruturar as respostas.
+* **[Groq (Llama 3.3 70B))]:** LLM open source focado em alta velocidade e raciocínio lógico para estruturar as respostas.
 * **[HuggingFace Embeddings](https://huggingface.co/):** Modelo transformer `all-MiniLM-L6-v2` para conversão de texto em vetores.
 * **[ChromaDB](https://www.trychroma.com/):** Banco de dados vetorial operando em memória para recuperação dos chunks da lei.
 * **[PyMuPDF](https://pymupdf.readthedocs.io/):** Extração dos textos do documento PDF oficial.
